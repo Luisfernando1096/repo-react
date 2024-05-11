@@ -9,6 +9,7 @@ import { Layout } from '../components/Layout'
 import { Inscripcion } from '../pages/Inscripcion'
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
+import { ListadoCursos } from '../pages/cursos/ListadoCursos'
 
 const AppRouter = () => {
     return (
@@ -24,8 +25,12 @@ const AppRouter = () => {
                         <Route exact path='/cursos' Component={Cursos} />
                     </Route>
 
-                    <Route element={<PrivateRoute hasRole="admin" />}>
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
                         <Route exact path='/participantes' Component={Participantes} />
+                    </Route>
+
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
+                        <Route exact path='/cursosgestion' Component={ListadoCursos} />
                     </Route>
 
                     <Route element={<PrivateRoute />}>
