@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
 
-    const clientId = "176492661084-uv08kmj2c463l4s6gdhh7kifm3dfa3uj.apps.googleusercontent.com";
     const userString = localStorage.getItem('user');
     const user = JSON.parse(userString);
     const navegar = useNavigate()
@@ -64,7 +63,7 @@ const Navigation = () => {
                         </li>
                     ) : (
                         <li className="nav-item">
-                            <GoogleLogout clientId={clientId} onLogoutSuccess={responseMessage}/> 
+                            <button onClick={responseMessage} className='btn btn-danger'>Cerrar sesion</button>
                         </li>
                     )}
                 </ul>
