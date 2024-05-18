@@ -30,6 +30,10 @@ const AppRouter = () => {
                     </Route>
 
                     <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
+                        <Route exact path='/inscripciones' Component={Inscripcion} />
+                    </Route>
+
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
                         <Route exact path='/cursosgestion' Component={ListadoCursos} />
                     </Route>
 
