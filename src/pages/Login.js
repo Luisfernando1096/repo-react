@@ -1,23 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../auth/useAuth';
 
 const Login = () => {
   const navegar = useNavigate();
+  const { user, token, isLogued, login, logout } = useAuth();
 
   const responseMessage = () => {
     // Definir el objeto que quieres guardar
-    const user = [
+    const user = 
       {
         id: 1,
         rol: "admin"
       }
-    ];
+    ;
+
+    //Definir el token
+    const token = 'hsdgsf';
 
     // Convertir el objeto a una cadena JSON
-    const userJSON = JSON.stringify(user);
+    //const userJSON = JSON.stringify(user);
 
-    // Guardar la cadena JSON en localStorage
-    localStorage.setItem('user', userJSON);
+    login(user, token);
 
     navegar("/cursos");
   };

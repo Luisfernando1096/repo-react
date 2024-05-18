@@ -1,15 +1,21 @@
 import React from 'react';
-import { GoogleLogout } from 'react-google-login';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../auth/useAuth';
+import { BotonAgregar } from '../buttons/BotonAgregar';
+import { BotonDanger } from '../buttons/BotonDanger';
 
 const Navigation = () => {
 
-    const userString = localStorage.getItem('user');
-    const user = JSON.parse(userString);
+    //const { user, token, isLogued, login, logout } = useAuth();
+    const user = {
+        id: 1,
+        rol: 'admin'
+    }
+
     const navegar = useNavigate()
 
     const responseMessage = () => {
-        localStorage.removeItem('user')
+        //logout();
         navegar('/login')
       };
 
@@ -63,7 +69,7 @@ const Navigation = () => {
                         </li>
                     ) : (
                         <li className="nav-item">
-                            <button onClick={responseMessage} className='btn btn-danger'>Cerrar sesion</button>
+                            <BotonDanger titulo = "Cerrar Sesion" onClick={responseMessage}/>
                         </li>
                     )}
                 </ul>

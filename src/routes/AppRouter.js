@@ -10,6 +10,8 @@ import { Inscripcion } from '../pages/Inscripcion'
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
 import { ListadoCursos } from '../pages/cursos/ListadoCursos'
+import { ListaHorarios } from '../pages/horarios/ListaHorarios'
+import { ListaTiposDeCurso } from '../pages/tipocurso/ListaTiposDeCurso'
 
 const AppRouter = () => {
     return (
