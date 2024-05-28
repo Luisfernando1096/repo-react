@@ -12,6 +12,9 @@ import { PublicRoute } from './PublicRoute'
 import { ListadoCursos } from '../pages/cursos/ListadoCursos'
 import { ListaHorarios } from '../pages/horarios/ListaHorarios'
 import { ListaTiposDeCurso } from '../pages/tipocurso/ListaTiposDeCurso'
+import { ListaDepartamentos } from '../pages/departamentos/ListadoDepartamentos';
+import { ListaMunicipios } from '../pages/municipios/ListadoMunicipios'
+
 
 const AppRouter = () => {
     return (
@@ -31,6 +34,18 @@ const AppRouter = () => {
                         <Route exact path='/participantes' Component={Participantes} />
                     </Route>
 
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
+                        <Route exact path='/tiposdecurso' Component={ListaTiposDeCurso} />
+                    </Route>
+
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
+                        <Route exact path='/departamentos' Component={ListaDepartamentos} />
+                    </Route>
+
+                    <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
+                        <Route exact path='/municipios' Component={ListaMunicipios}/>
+                    </Route>
+                    
                     <Route element={<PrivateRoute /*hasRole="admin"*/ />}>
                         <Route exact path='/cursosgestion' Component={ListadoCursos} />
                     </Route>

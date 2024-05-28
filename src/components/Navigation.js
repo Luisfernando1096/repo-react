@@ -26,9 +26,12 @@ const Navigation = () => {
             dropdown: true,
             items: [ // Agrega más elementos dentro del dropdown
                 { text: "Gestion de cursos", link: "/cursosgestion" },
-                { text: "Participantes", link: "/participantes" }
+                { text: "Participantes", link: "/participantes" },
+                { text: "Departamentos", link: "/departamentos" },
+                { text: "municipios", link: "/municipios" }
             ]
-        }
+        },
+        { text: "Tipos De curso", link: "/tiposdecurso" }
     ];
 
     return (
