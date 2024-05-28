@@ -4,11 +4,11 @@ import { useAuth } from '../auth/useAuth';
 
 function PrivateRoute({ hasRole: rol }) {
 
-    //const { user, token, isLogued, login, logout } = useAuth();
-    const user = {
+    const { user } = useAuth();
+    /*const user = {
         id: 1,
         rol: 'admin'
-    }
+    }*/
 
     if (!user) return <Navigate to='/login' />
     if (rol && user?.rol !== rol) return <Navigate to='/' />

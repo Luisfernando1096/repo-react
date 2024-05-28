@@ -4,7 +4,7 @@ const Participantes = () => {
   return (
     <>
       <div class="mt-5 d-flex">
-        <div class="p-2 flex-grow-1"><h1 className=''>Cursos</h1></div>
+        <div class="p-2 flex-grow-1"><h1 className=''>Participantes</h1></div>
         
         <div class="p-2"><button className='btn btn-success'>Agregar curso</button></div>
       </div>

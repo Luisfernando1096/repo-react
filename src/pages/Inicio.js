@@ -1,6 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Inicio = () => {
+  const navegar = useNavigate();
+
+  const onclick = (id) => {
+    navegar(`/cursos/${id}`);//Enviar parametros por url
+  }
+
   return (
     <>
       <h1 style={{ color: 'white' }} className='mt-5 bg-primary bg-gradient col-md-4'>Cursos Proximos...</h1>
@@ -18,8 +25,8 @@ const Inicio = () => {
               <div className="text-body-secondary">
                 Universidad de Sonsonate
               </div>
+              <button className='btn btn-success' onClick={() => onclick(1)}>Inscribirme</button>
             </div>
-
           </div>
         </div>
         <div className="row">
@@ -35,8 +42,8 @@ const Inicio = () => {
               <div className="text-body-secondary">
                 Universidad de Sonsonate
               </div>
+              <button className='btn btn-success'>Inscribirme</button>
             </div>
-
           </div>
         </div>
         

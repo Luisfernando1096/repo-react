@@ -6,26 +6,35 @@ import { BotonDanger } from '../buttons/BotonDanger';
 
 const Navigation = () => {
 
-    //const { user, token, isLogued, login, logout } = useAuth();
-    const user = {
+    const { user, setUser } = useAuth();
+    /*const user = {
         id: 1,
         rol: 'admin'
-    }
+    }*/
 
     const navegar = useNavigate()
 
-    const responseMessage = () => {
-        //logout();
+    const cerrarsesion = () => {
+        setUser(null);
+        localStorage.removeItem('user');
         navegar('/login')
-      };
+    };
 
     const navItems = [
-        { text: "Cursos", link: "/cursos" },
+        { text: "Mis Cursos", link: "/miscursos" },
         {
             text: "Admin",
             dropdown: true,
             items: [ // Agrega más elementos dentro del dropdown
-                { text: "Gestion de cursos", link: "/cursosgestion" },
+                { text: "Cursos", link: "/cursos" },
+                { text: "Participantes", link: "/participantes" }
+            ]
+        },
+        {
+            text: "Profesor",
+            dropdown: true,
+            items: [ // Agrega más elementos dentro del dropdown
+                { text: "Asignar Notas", link: "/asignarnotas" },
                 { text: "Participantes", link: "/participantes" }
             ]
         }
@@ -69,13 +78,12 @@ const Navigation = () => {
                         </li>
                     ) : (
                         <li className="nav-item">
-                            <BotonDanger titulo = "Cerrar Sesion" onClick={responseMessage}/>
+                            <BotonDanger titulo="Cerrar Sesion" onclick={cerrarsesion} />
                         </li>
                     )}
                 </ul>
             </div>
         </nav>
-
     )
 }
 

@@ -1,9 +1,7 @@
-import React from 'react'
+// useAuth.js
+import { useContext } from 'react';
+import { DataContext } from '../contexts/DataContext';
 
-const useAuth = () => {
-  return (
-    <div>useAuth</div>
-  )
-}
-
-export { useAuth }
+export const useAuth = () => {
+  return useContext(DataContext);
+};

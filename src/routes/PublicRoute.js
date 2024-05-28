@@ -4,11 +4,11 @@ import { useAuth } from '../auth/useAuth';
 
 function PublicRoute() {
 
-    //const { user, token, isLogued, login, logout } = useAuth();
-    const user = {
+    const { user } = useAuth();
+    /*const user = {
         id: 1,
         rol: 'admin'
-    }
+    }*/
 
     if (user) return <Navigate to='/cursos' />
 

@@ -4,7 +4,7 @@ import { useAuth } from '../auth/useAuth';
 
 const Login = () => {
   const navegar = useNavigate();
-  const { user, token, isLogued, login, logout } = useAuth();
+  const { setUser } = useAuth();
 
   const responseMessage = () => {
     // Definir el objeto que quieres guardar
@@ -15,19 +15,12 @@ const Login = () => {
       }
     ;
 
-    //Definir el token
-    const token = 'hsdgsf';
-
     // Convertir el objeto a una cadena JSON
     //const userJSON = JSON.stringify(user);
 
-    login(user, token);
+    setUser(user);
 
     navegar("/cursos");
-  };
-
-  const errorMessage = (error) => {
-    console.log(error);
   };
 
   return (

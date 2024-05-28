@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useFetch } from '../../tools/useFetch';
+import { useNavigate } from 'react-router-dom';
 
 const useLista = () => {
+
+    const navegar = useNavigate();
 
     // Función para crear el objeto de datos y establecer valores si se le manda un curso
     const crearDatos = (curso = null) => {
@@ -34,9 +37,11 @@ const useLista = () => {
         setCursoSeleccionado(cursoSeleccionado);
         setOperacion(op);
         setTitulo(op === 1 ? 'Registrar Curso' : 'Editar Curso');
+        navegar("/cursosgestion", { state: { curso: cursoSeleccionado, operacion: op } });
     };
 
     const validarCampos = () => {
+        console.log('Entre aqui');
         if (cursoSeleccionado.curso.trim() === '') {
             alert('Nombre Vacio!');
         } else if (cursoSeleccionado.idTipoCurso <= 0) {
@@ -63,9 +68,13 @@ const useLista = () => {
                 const id = cursoSeleccionado.idCurso;
                 putOnClick(id, datos);
             }
-            document.getElementById('btnCerrarModal').click();
+            iracursos();
         }
     };
+
+    const iracursos = () => {
+        navegar("/cursos");
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -156,7 +165,10 @@ const useLista = () => {
         getTiposCurso,
         tiposCurso,
         deleteOnClick,
-        crearDatos
+        crearDatos,
+        setOperacion,
+        getTiposCurso,
+        iracursos
     }
 
 }
