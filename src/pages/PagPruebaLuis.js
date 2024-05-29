@@ -2,7 +2,7 @@ import React from 'react'
 
 const PagPruebaLuis = () => {
   return (
-    <div>PagPruebaLuis</div>
+    <div>PaGINA</div>
   )
 }
 
